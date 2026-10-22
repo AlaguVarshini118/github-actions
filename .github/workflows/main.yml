@@ -1,1 +1,24 @@
+name: GitHub Actions Demo
 
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  schedule:
+    - cron: "30 3 * * *"
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display success message
+        run: echo "GitHub Actions workflow executed successfully!"
